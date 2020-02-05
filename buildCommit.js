@@ -32,6 +32,17 @@ const addType = (type, config) => {
   return _.trim(`${prefix}${type}${suffix}`);
 };
 
+const addEmoji = (type, config) => {
+  const types = _.get(config, 'types', []);
+  const emoji = _.get(
+    _.find(types, t => t.value === type),
+    'emoji',
+    '❓'
+  );
+
+  return `${emoji}  `;
+};
+
 const addBreaklinesIfNeeded = (value, breaklineChar = defaultBreaklineChar) =>
   value
     .split(breaklineChar)
@@ -73,6 +84,7 @@ module.exports = (answers, config) => {
   const head = (
     addType(answers.type, config) +
     addScope(answers.scope, config) +
+    addEmoji(answers.type, config) +
     addTicketNumber(answers.ticketNumber, config) +
     addSubject(answers.subject)
   ).slice(0, defaultMaxLineWidth);
