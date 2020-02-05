@@ -1,71 +1,66 @@
 module.exports = {
-  types: [
-    { value: 'feat', name: 'feat:     A new feature' },
-    { value: 'fix', name: 'fix:      A bug fix' },
-    { value: 'docs', name: 'docs:     Documentation only changes' },
-    {
-      value: 'style',
-      name:
-        'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)',
-    },
-    {
-      value: 'refactor',
-      name: 'refactor: A code change that neither fixes a bug nor adds a feature',
-    },
-    {
-      value: 'perf',
-      name: 'perf:     A code change that improves performance',
-    },
-    { value: 'test', name: 'test:     Adding missing tests' },
-    {
-      value: 'chore',
-      name:
-        'chore:    Changes to the build process or auxiliary tools\n            and libraries such as documentation generation',
-    },
-    { value: 'revert', name: 'revert:   Revert to a commit' },
-    { value: 'WIP', name: 'WIP:      Work in progress' },
-  ],
+  // add additional standard scopes here
+  scopes: [{ name: 'accounts' }, { name: 'admin' }],
+  // use this to permanently skip any questions by listing the message key as a string
+  skipQuestions: [],
 
-  scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
-
-  allowTicketNumber: false,
-  isTicketNumberRequired: false,
-  ticketNumberPrefix: 'TICKET-',
-  ticketNumberRegExp: '\\d{1,5}',
-
-  // it needs to match the value for field type. Eg.: 'fix'
-  /*
-  scopeOverrides: {
-    fix: [
-
-      {name: 'merge'},
-      {name: 'style'},
-      {name: 'e2eTest'},
-      {name: 'unitTest'}
-    ]
-  },
-  */
-  // override the messages, defaults are as follows
+  /* DEFAULT CONFIG */
   messages: {
-    type: "Select the type of change that you're committing:",
-    scope: '\nDenote the SCOPE of this change (optional):',
-    // used if allowCustomScopes is true
-    customScope: 'Denote the SCOPE of this change:',
-    subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
+    type: 'What type of changes are you committing:',
+    scope: '\nEnlighten us with the scope (optional):',
+    customScope: 'Add the scope of your liking:',
+    subject: 'Write a short and simple description of the change:\n',
     body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
     breaking: 'List any BREAKING CHANGES (optional):\n',
     footer: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n',
-    confirmCommit: 'Are you sure you want to proceed with the commit above?',
+    confirmCommit: 'Are you sure you the the above looks right (y, n, e(dit message))?',
   },
-
+  types: [
+    {
+      value: 'fix',
+      name: '🐛   fix:        Changes that fix a bug',
+      emoji: '🐛',
+    },
+    {
+      value: 'feat',
+      name: ' 🚀  feat:       Changes that introduce a new feature',
+      emoji: '🚀',
+    },
+    {
+      value: 'refactor',
+      name: '🤷‍♂️   refactor:   Changes that fix a bug nor adds a feature',
+      emoji: '🤷‍♂️',
+    },
+    {
+      value: 'test',
+      name: '🧪   test:       Adding missing tests',
+      emoji: '🧪',
+    },
+    {
+      value: 'style',
+      name:
+        '💅   style:      Changes that do not impact the code base  \n                   (white-space, formatting, missing semi-colons, etc)',
+      emoji: '💅',
+    },
+    {
+      value: 'docs',
+      name: '📝   docs:       Changes to the docs',
+      emoji: '📝',
+    },
+    {
+      value: 'chore',
+      name:
+        '🤖   chore:      Changes to the build process or auxiliary tools\n                   and or libraries such as auto doc generation',
+      emoji: '🤖',
+    },
+  ],
+  allowTicketNumber: false,
+  isTicketNumberRequired: false,
+  ticketNumberPrefix: '#',
+  ticketNumberRegExp: '\\d{1,5}',
   allowCustomScopes: true,
-  allowBreakingChanges: ['feat', 'fix'],
-  // skip any questions you want
-  skipQuestions: ['body'],
-
-  // limit subject length
-  subjectLimit: 100,
-  // breaklineChar: '|', // It is supported for fields body and footer.
-  // footerPrefix : 'ISSUES CLOSED:'
-  // askForBreakingChangeFirst : true, // default is false
+  allowBreakingChanges: ['feat', 'fix', 'chore'],
+  breakingPrefix: '🚧 BREAKING CHANGES 🚧',
+  footerPrefix: 'CLOSED ISSUE:',
+  subjectLimit: 77,
 };
