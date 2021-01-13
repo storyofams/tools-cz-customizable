@@ -45,7 +45,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "ghooks": "^2.0.4",
     "istanbul": "^0.4.5",
-    "jasmine-node": "^1.16.2",
+    "jasmine-node": "^3.0.0",
     "prettier": "^2.2.1",
     "rewire": "^4.0.1",
     "semantic-release": "^15.13.12",
