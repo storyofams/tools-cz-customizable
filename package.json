@@ -46,7 +46,7 @@
     "ghooks": "^2.0.4",
     "istanbul": "^0.4.5",
     "jasmine-node": "^1.16.2",
-    "prettier": "^1.17.1",
+    "prettier": "^2.2.1",
     "rewire": "^4.0.1",
     "semantic-release": "^15.13.12",
     "travis-deploy-once": "^5.0.11"
