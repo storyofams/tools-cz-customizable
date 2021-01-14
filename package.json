@@ -28,28 +28,28 @@
   "license": "MIT",
   "dependencies": {
     "editor": "1.0.0",
-    "find-config": "^1.0.0",
-    "inquirer": "^7.3.3",
-    "lodash": "^4.17.11",
-    "temp": "^0.9.0",
-    "word-wrap": "^1.2.3"
+    "find-config": "1.0.0",
+    "inquirer": "7.3.3",
+    "lodash": "4.17.20",
+    "temp": "0.9.4",
+    "word-wrap": "1.2.3"
   },
   "devDependencies": {
     "codecov.io": "0.1.6",
-    "commitizen": "^4.2.2",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-nada": "^1.1.1",
-    "eslint-plugin-prettier": "^3.1.0",
-    "ghooks": "^2.0.4",
-    "istanbul": "^0.4.5",
-    "jasmine-node": "^3.0.0",
-    "prettier": "^2.2.1",
-    "rewire": "^5.0.0",
-    "semantic-release": "^17.2.3",
-    "travis-deploy-once": "^5.0.11"
+    "commitizen": "4.2.2",
+    "eslint": "7.17.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-nada": "1.1.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "ghooks": "2.0.4",
+    "istanbul": "0.4.5",
+    "jasmine-node": "3.0.0",
+    "prettier": "2.2.1",
+    "rewire": "5.0.0",
+    "semantic-release": "17.3.2",
+    "travis-deploy-once": "5.0.11"
   },
   "config": {
     "commitizen": {
