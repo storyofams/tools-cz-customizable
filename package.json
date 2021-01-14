@@ -47,8 +47,8 @@
     "istanbul": "^0.4.5",
     "jasmine-node": "^3.0.0",
     "prettier": "^2.2.1",
-    "rewire": "^4.0.1",
-    "semantic-release": "^15.13.12",
+    "rewire": "^5.0.0",
+    "semantic-release": "^17.2.3",
     "travis-deploy-once": "^5.0.11"
   },
   "config": {
