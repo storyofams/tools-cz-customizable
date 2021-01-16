@@ -9,21 +9,21 @@ describe('buildCommit()', () => {
 
   it('subject with default subject separator', () => {
     const options = {};
-    expect(buildCommit(answers, options)).toEqual('feat(app): this is a new feature');
+    expect(buildCommit(answers, options)).toEqual('feat(app): ❓  this is a new feature');
   });
 
   it('subject with custom subject separator option', () => {
     const options = {
       subjectSeparator: ' - ',
     };
-    expect(buildCommit(answers, options)).toEqual('feat(app) - this is a new feature');
+    expect(buildCommit(answers, options)).toEqual('feat(app) - ❓  this is a new feature');
   });
 
   it('subject 1 empty character separator', () => {
     const options = {
       subjectSeparator: ' ',
     };
-    expect(buildCommit(answers, options)).toEqual('feat(app) this is a new feature');
+    expect(buildCommit(answers, options)).toEqual('feat(app) ❓  this is a new feature');
   });
 
   describe('without scope', () => {
@@ -33,7 +33,7 @@ describe('buildCommit()', () => {
         subject: 'this is a new feature',
       };
       const options = {};
-      expect(buildCommit(answersNoScope, options)).toEqual('feat: this is a new feature');
+      expect(buildCommit(answersNoScope, options)).toEqual('feat: ❓  this is a new feature');
     });
 
     it('subject without scope', () => {
@@ -44,7 +44,7 @@ describe('buildCommit()', () => {
       const options = {
         subjectSeparator: ' - ',
       };
-      expect(buildCommit(answersNoScope, options)).toEqual('feat - this is a new feature');
+      expect(buildCommit(answersNoScope, options)).toEqual('feat - ❓  this is a new feature');
     });
   });
 
@@ -59,13 +59,13 @@ describe('buildCommit()', () => {
         typeSuffix: ']',
         subjectSeparator: ' ',
       };
-      expect(buildCommit(answersNoScope, options)).toEqual('[feat] this is a new feature');
+      expect(buildCommit(answersNoScope, options)).toEqual('[feat] ❓  this is a new feature');
     });
   });
 
   describe('pipe replaced with new line', () => {
     // I know it looks weird on tests but this proves to have the correct breakline inserted.
-    const expecteMessage = `feat: this is a new feature\n
+    const expectedMessage = `feat: ❓  this is a new feature\n
 body with new line now
 body line2
 
@@ -81,7 +81,7 @@ line 2`;
       };
       const options = {};
 
-      expect(buildCommit(answersNoScope, options)).toEqual(expecteMessage);
+      expect(buildCommit(answersNoScope, options)).toEqual(expectedMessage);
     });
 
     it('should override breakline character with option breaklineChar', () => {
@@ -95,7 +95,7 @@ line 2`;
         breaklineChar: '@@@',
       };
 
-      expect(buildCommit(answersNoScope, options)).toEqual(expecteMessage);
+      expect(buildCommit(answersNoScope, options)).toEqual(expectedMessage);
     });
   });
 });

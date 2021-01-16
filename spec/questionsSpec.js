@@ -11,7 +11,7 @@ describe('cz-customizable', () => {
     Separator: jasmine.createSpy(),
   };
 
-  const getQuestion = number => questions.getQuestions(config, mockedCz)[number - 1];
+  const getQuestion = (number) => questions.getQuestions(config, mockedCz)[number - 1];
 
   it('should array of questions be returned', () => {
     config = {
@@ -48,7 +48,7 @@ describe('cz-customizable', () => {
     expect(getQuestion(2).when({ type: 'wip' })).toEqual(false);
 
     // question 3 - SCOPE CUSTOM
-    expect(getQuestion(3).name).toEqual('scope');
+    expect(getQuestion(3).name).toEqual('customScope');
     expect(getQuestion(3).when({ scope: 'custom' })).toEqual(true);
     expect(getQuestion(3).when({ scope: false })).toEqual(false);
     expect(getQuestion(3).when({ scope: 'scope' })).toEqual(false);

@@ -55,7 +55,7 @@ describe('cz-customizable', () => {
     // run commitizen plugin
     module.prompter(mockCz, commit);
 
-    expect(commit).toHaveBeenCalledWith('feat: do it all');
+    expect(commit).toHaveBeenCalledWith('feat: ❓  do it all');
   });
 
   it('should escape special characters sush as backticks', () => {
@@ -68,7 +68,7 @@ describe('cz-customizable', () => {
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
 
-    expect(commit).toHaveBeenCalledWith('feat: with backticks \\`here\\`');
+    expect(commit).toHaveBeenCalledWith('feat: ❓  with backticks \\`here\\`');
   });
 
   it('should not call commit() function if there is no final confirmation and display log message saying commit has been canceled', () => {
@@ -95,7 +95,7 @@ describe('cz-customizable', () => {
     module.prompter(mockCz, commit);
 
     expect(commit).toHaveBeenCalledWith(
-      'feat(myScope): create a new cool feature\n\n-line1\n-line2\n\nBREAKING CHANGE:\nbreaking\n\nISSUES CLOSED: my footer'
+      'feat(myScope): ❓  create a new cool feature\n\n-line1\n-line2\n\nBREAKING CHANGE:\nbreaking\n\nISSUES CLOSED: my footer'
     );
   });
 
@@ -109,7 +109,7 @@ describe('cz-customizable', () => {
 
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
-    expect(commit).toHaveBeenCalledWith('feat(myScope): create a new cool feature');
+    expect(commit).toHaveBeenCalledWith('feat(myScope): ❓  create a new cool feature');
   });
 
   it('should suppress scope when commit type is WIP', () => {
@@ -121,10 +121,10 @@ describe('cz-customizable', () => {
 
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
-    expect(commit).toHaveBeenCalledWith('WIP: this is my work-in-progress');
+    expect(commit).toHaveBeenCalledWith('WIP: ❓  this is my work-in-progress');
   });
 
-  it('should allow edit message before commit', done => {
+  it('should allow edit message before commit', (done) => {
     process.env.EDITOR = 'true';
 
     const answers = {
@@ -137,12 +137,12 @@ describe('cz-customizable', () => {
     module.prompter(mockCz, commit);
 
     setTimeout(() => {
-      expect(commit).toHaveBeenCalledWith('feat: create a new cool feature');
+      expect(commit).toHaveBeenCalledWith('feat: ❓  create a new cool feature');
       done();
     }, 100);
   });
 
-  it('should not commit if editor returned non-zero value', done => {
+  it('should not commit if editor returned non-zero value', (done) => {
     process.env.EDITOR = 'false';
 
     const answers = {
@@ -180,7 +180,7 @@ describe('cz-customizable', () => {
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
 
-    const firstPart = 'feat(myScope): ';
+    const firstPart = 'feat(myScope): ❓  ';
 
     const firstLine = commit.mostRecentCall.args[0].split('\n\n')[0];
     expect(firstLine).toEqual(firstPart + answers.subject.slice(0, 100 - firstPart.length));
@@ -228,7 +228,7 @@ describe('cz-customizable', () => {
     module.prompter(mockCz, commit);
 
     expect(commit).toHaveBeenCalledWith(
-      'feat(myScope): create a new cool feature\n\nWARNING:\nbreaking\n\nISSUES CLOSED: my footer'
+      'feat(myScope): ❓  create a new cool feature\n\nWARNING:\nbreaking\n\nISSUES CLOSED: my footer'
     );
   });
 
@@ -266,7 +266,7 @@ describe('cz-customizable', () => {
     module.prompter(mockCz, commit);
 
     expect(commit).toHaveBeenCalledWith(
-      'feat(myScope): create a new cool feature\n\nBREAKING CHANGE:\nbreaking\n\nFIXES: my footer'
+      'feat(myScope): ❓  create a new cool feature\n\nBREAKING CHANGE:\nbreaking\n\nFIXES: my footer'
     );
   });
 
@@ -304,7 +304,7 @@ describe('cz-customizable', () => {
     module.prompter(mockCz, commit);
 
     expect(commit).toHaveBeenCalledWith(
-      'feat(myScope): create a new cool feature\n\nBREAKING CHANGE:\nbreaking\n\nmy footer'
+      'feat(myScope): ❓  create a new cool feature\n\nBREAKING CHANGE:\nbreaking\n\nmy footer'
     );
   });
 
@@ -319,7 +319,7 @@ describe('cz-customizable', () => {
 
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
-    expect(commit).toHaveBeenCalledWith('feat(myScope): TICKET-1234 create a new cool feature');
+    expect(commit).toHaveBeenCalledWith('feat(myScope): ❓  TICKET-1234 create a new cool feature');
   });
 
   it('should call commit() function with ticket number and prefix', () => {
@@ -354,6 +354,6 @@ describe('cz-customizable', () => {
 
     const mockCz = getMockedCz(answers);
     module.prompter(mockCz, commit);
-    expect(commit).toHaveBeenCalledWith('feat(myScope): TICKET-1234 create a new cool feature');
+    expect(commit).toHaveBeenCalledWith('feat(myScope): ❓  TICKET-1234 create a new cool feature');
   });
 });

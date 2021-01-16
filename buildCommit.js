@@ -23,7 +23,7 @@ const addScope = (scope, config) => {
   return `(${scope.trim()})${separator}`;
 };
 
-const addSubject = subject => _.trim(subject);
+const addSubject = (subject) => _.trim(subject);
 
 const addType = (type, config) => {
   const prefix = _.get(config, 'typePrefix', '');
@@ -35,7 +35,7 @@ const addType = (type, config) => {
 const addEmoji = (type, config) => {
   const types = _.get(config, 'types', []);
   const emoji = _.get(
-    _.find(types, t => t.value === type),
+    _.find(types, (t) => t.value === type),
     'emoji',
     '❓'
   );
@@ -44,10 +44,7 @@ const addEmoji = (type, config) => {
 };
 
 const addBreaklinesIfNeeded = (value, breaklineChar = defaultBreaklineChar) =>
-  value
-    .split(breaklineChar)
-    .join('\n')
-    .valueOf();
+  value.split(breaklineChar).join('\n').valueOf();
 
 const addFooter = (footer, config) => {
   if (config && config.footerPrefix === '') return `\n\n${footer}`;
@@ -57,13 +54,13 @@ const addFooter = (footer, config) => {
   return `\n\n${footerPrefix} ${addBreaklinesIfNeeded(footer, config.breaklineChar)}`;
 };
 
-const escapeSpecialChars = result => {
+const escapeSpecialChars = (result) => {
   // eslint-disable-next-line no-useless-escape
   const specialChars = ['`'];
 
   let newResult = result;
   // eslint-disable-next-line array-callback-return
-  specialChars.map(item => {
+  specialChars.map((item) => {
     // If user types "feat: `string`", the commit preview should show "feat: `\string\`".
     // Don't worry. The git log will be "feat: `string`"
     newResult = result.replace(new RegExp(item, 'g'), '\\`');
@@ -83,7 +80,7 @@ module.exports = (answers, config) => {
   // eslint-disable-next-line max-len
   const head = (
     addType(answers.type, config) +
-    addScope(answers.scope, config) +
+    addScope(answers.customScope || answers.scope, config) +
     addEmoji(answers.type, config) +
     addTicketNumber(answers.ticketNumber, config) +
     addSubject(answers.subject)
