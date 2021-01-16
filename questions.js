@@ -2,7 +2,7 @@ const _ = require('lodash');
 const buildCommit = require('./buildCommit');
 const log = require('./logger');
 
-const isNotWip = answers => answers.type.toLowerCase() !== 'wip';
+const isNotWip = (answers) => answers.type.toLowerCase() !== 'wip';
 
 const isValidateTicketNo = (value, config) => {
   if (!value) {
@@ -69,6 +69,7 @@ module.exports = {
               { name: 'custom', value: 'custom' },
             ]);
           }
+
           return scopes;
         },
         when(answers) {
@@ -89,7 +90,7 @@ module.exports = {
       },
       {
         type: 'input',
-        name: 'scope',
+        name: 'customScope',
         message: messages.customScope,
         when(answers) {
           return answers.scope === 'custom';
@@ -140,7 +141,7 @@ module.exports = {
           ) {
             return true;
           }
-          return false; // no breaking changes allowed unless specifed
+          return false; // no breaking changes allowed unless specified
         },
       },
       {
@@ -166,10 +167,10 @@ module.exports = {
       },
     ];
 
-    questions = questions.filter(item => !skipQuestions.includes(item.name));
+    questions.filter((item) => !skipQuestions.includes(item.name));
 
     if (config.askForBreakingChangeFirst) {
-      const isBreaking = oneQuestion => oneQuestion.name === 'breaking';
+      const isBreaking = (oneQuestion) => oneQuestion.name === 'breaking';
 
       const breakingQuestion = _.filter(questions, isBreaking);
       const questionWithoutBreaking = _.reject(questions, isBreaking);
