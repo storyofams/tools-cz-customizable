@@ -1,6 +1,6 @@
 {
   "version": "0.0.0-development",
-  "name": "cz-customizable",
+  "name": "@storyofams/cz-customizable",
   "description": "Commitizen customizable adapter following the conventional-changelog format.",
   "main": "index.js",
   "types": "index.d.ts",
