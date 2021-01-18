@@ -22,11 +22,16 @@
     "url": "https://github.com/storyofams/tools-cz-customizable.git"
   },
   "author": "Leonardo Correa <leonardoanalista@gmail.com>",
-  "maintainers": ["Story of AMS"],
+  "maintainers": [
+    "Story of AMS"
+  ],
   "contributors": [
     "Aleksey Guryanov <gurianov@gmail.com>"
   ],
   "license": "MIT",
+  "publisConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "editor": "1.0.0",
     "find-config": "1.0.0",
