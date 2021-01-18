@@ -41,7 +41,7 @@
     "word-wrap": "1.2.3"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/changelog": "5.0.1",
     "codecov.io": "0.1.6",
     "commitizen": "4.2.3",
     "eslint": "7.18.0",
