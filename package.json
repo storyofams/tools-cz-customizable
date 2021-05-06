@@ -36,7 +36,7 @@
     "editor": "1.0.0",
     "find-config": "1.0.0",
     "inquirer": "7.3.3",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "temp": "0.9.4",
     "word-wrap": "1.2.3"
   },
